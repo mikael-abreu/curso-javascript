@@ -18,8 +18,8 @@
         var pais = window.document.getElementById('pais')
         var result = window.document.getElementById('res')
         var p = String(pais.value)
-        if (p == 'Brasil') {
-            result.innerHTML = `<p>Você nasceu no ${p} e é brasileiro!</p>`
+        if (p == 'Brasil' || 'brasil' || 'BRASIL') {
+            result.innerHTML = `<p>Você nasceu no <strong>${p}</strong> e é brasileiro!</p>`
         } else {
             result.innerHTML = `<p>Você nasceu no(a) <strong>${p}</strong> e é estrangeiro!</p>`
         }
