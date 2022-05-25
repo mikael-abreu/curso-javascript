@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+       body {
+           background-color: rgb(0, 170, 212);
+       }
+       header > h1 {
+           font-family: Arial, Helvetica, sans-serif;
+           color: white;
+           text-align: center;
+       }
+       section {
+           font-family: Arial, Helvetica, sans-serif;
+           background-color: white;
+           padding: 10px;
+           width: 500px;
+           border-radius: 8px;
+           box-shadow: 2px 2px 5px black;
+           margin: auto;
+           
+       }
+       footer > p {
+            text-align: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+       }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <div>
+            <p>Ano de Nascimento:
+                <input type="number" name="txtano" id="txtano" min="0">
+            </p>
+            <p>
+                Sexo:
+                <input type="radio" name="radsex" id="masc" checked>
+                <!--os dois radio tem que ter o mesmo "name" p/ que só um fique marcado-->
+                <label for="masc">Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" onclick="verificar()">
+            </p>
+        </div>
+        <div id="res">
+            Preencha os dados acima para ver o resultado!
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+    <script>
+        function verificar() {
+            var data = new Date()
+            var ano = data.getFullYear()
+            var fano = document.getElementById('txtano')
+            var res = document.getElementById('res')
+            if (fano.value.length == 0){
+                window.alert('[ERRO] Digite o ano de nascimento!')
+            } else if (fano.value > ano){
+                window.alert('[ERRO] Ano digitado maior que ano atual')
+            } else {
+                var fsex = document.getElementsByName('radsex')
+                var idade = ano - Number(fano.value)
+                var genero = ''
+                var img = document.createElement('img')/*cria uma tag img*/
+                img.setAttribute('id', 'foto')//cria um atributo id com nome foto na tag img
+                if (fsex[0].checked) {// "[0]" radio masculino
+                    genero = 'homem'  // "[1]" "radio feminino"
+                    if (idade >= 0 && idade < 10) {
+                        //criança
+                        img.setAttribute('src', 'crianca.png')//adiciona no "src" de img a foto crianca.png
+                    } else if (idade < 21) {
+                        //jovem
+                        img.setAttribute('src', 'jovem.png')
+                    } else if (idade < 50) {
+                        //adulto
+                        img.setAttribute('src', 'homem.png')
+                    } else {
+                        //idoso
+                        img.setAttribute('src', 'velho.png')
+                    }
+                } else if (fsex[1].checked) {
+                    genero = 'mulher'
+                    if (idade >= 0 && idade < 10) {
+                        //criança
+                        img.setAttribute('src', 'crianca-m.png')
+                    } else if (idade < 21) {
+                        //jovem
+                        img.setAttribute('src', 'jovem-m.png')
+                    } else if (idade < 50) {
+                        //adulto
+                        img.setAttribute('src', 'mulher.png')
+                    } else {
+                        //idoso
+                        img.setAttribute('src', 'idosa.png')
+                    }
+                }
+                res.style.textAlign = 'center'
+                res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
+                res.appendChild(img)//faz a img aparecer em "res"
+            }   
+        }
+    </script>
+</body>
+</html>

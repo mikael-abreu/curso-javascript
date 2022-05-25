@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+
+        header > h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        section {
+            background-color: white;
+            height: 300px;
+            width: 500px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px;
+        }
+
+        section #divimg {
+            background-image: url(../verif_idade/imagens/manha.jpg);
+            background-position: top center;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            margin: auto;
+            background-size: cover;
+        }
+        
+        section > div > p {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 20px;
+        }
+
+        footer p {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        footer > p > a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body id="fundo" onload="horadia()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div>
+            <p id="hora"></p>
+        </div>
+
+        <div id="divimg">
+            
+        </div>
+    </section>
+    <footer>
+        <p>&copy;<a href="https://cursoemvideo.com" target="_blank">CursoemVideo</a></p>
+    </footer>
+    <script>
+        function horadia() {
+            var agora = new Date()
+            var hr = agora.getHours()
+            var min = agora.getMinutes()
+            var seg = agora.getSeconds()
+            // hr = 1
+            var hora = window.document.getElementById('hora')
+            var img = window.document.getElementById('divimg')
+            var fundo = window.document.getElementById('fundo')
+            var h = Number(hr.value)
+            hora.innerHTML = `<p>Agora são ${hr} horas e ${min} minutos e ${seg} segundos.</p>`
+            
+
+            if (hr < 6) {
+                fundo.style.backgroundColor = 'grey'
+                img.style.backgroundImage = 'url(../verif_idade/imagens/noite.jpg)'
+            } else if (hr < 12) {
+                fundo.style.backgroundColor = 'darkkhaki'
+                img.style.backgroundImage = 'url(../verif_idade/imagens/manha.jpg)'
+            } else if (hr < 18) {
+                fundo.style.backgroundColor = 'peru'
+                img.style.backgroundImage = 'url(../verif_idade/imagens/tarde.jpg)'
+            } else if (hr < 24) {
+                fundo.style.backgroundColor = 'darkslategrey'
+                img.style.backgroundImage = 'url(../verif_idade/imagens/noite.jpg)'
+            }
+        }
+    </script>
+</body>
+</html>
