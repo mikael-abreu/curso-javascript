@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            background-color: rgb(27, 112, 192);
+        }
+        header > h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        section {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            width: 500px;
+            padding: 10px;
+            border-radius: 8px;
+            margin: auto;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.452);
+        }
+        footer {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+    <section>
+        <div>
+            <p>Início: <input type="number" id="inicio"></p>
+            <p>Fim: <input type="number" id="fim"></p>
+            <p>Passo: <input type="number" id="passo"></p>
+            <input type="button" value="Contar" id="contar" onclick="contar()">
+        </div>
+        <div >
+            <p id="resultado">Preparando contagem...</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+    <script>
+        function contar() {
+            let inicio = document.getElementById('inicio')
+            let fim = document.getElementById('fim')
+            let passo = document.getElementById('passo')
+            let res = document.getElementById('resultado')
+
+            if (inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+                window.alert('Faltam dados! Preencha os campos corretamente.')
+                res.innerHTML = ``
+            } else {
+                res.innerHTML = `Contando: <br>`
+
+                let i = Number(inicio.value)
+                let f = Number(fim.value)
+                let p = Number(passo.value)
+
+                if (i > f){// contagem decrescente
+                  for (let c = i;c >= f;c -= p){
+                      res.innerHTML += `${c} | `
+                  }
+                    
+                } else {// contagem crescente
+                    for (let c = i;c <= f;c += p) {
+                        res.innerHTML += `${c} | `
+                    }
+                }
+                res.innerHTML += `FIM`
+            } 
+        }
+    </script>
+</body>
+</html>

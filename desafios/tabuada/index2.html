@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos contar</title>
+    <style>
+        body {
+            background-color: rgb(63, 133, 214);
+        }
+        header > h1 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 600px;
+            padding: 10px;
+            border-radius: 8px;
+            margin: auto;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        p#campos {
+            display: inline-block;
+        }
+        
+        section > div > {
+            padding: 10px;
+        }
+        
+        footer > p{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar 2</h1>
+    </header>
+    <section>
+        <div >
+            <p id="campos">Número: <input type="number" id="numero"></p>
+            <input type="button" value="Gerar Tabuada" onclick="tabuada()">
+        </div>
+        <div>
+            <select name="resultado" id="resultado" size="10"></select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+    <script>
+        function tabuada() {
+            
+            var num = document.getElementById('numero')
+            var res = document.getElementById('resultado')
+
+            if (num.value.length == 0) {
+                window.alert('Digite um número!')
+            } else {
+                let n = Number(num.value)
+                let c = 1
+                res.innerHTML = ``
+                while (c <= 10) {
+                    let item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${n*c}`
+                    item.value = `tab${c}`
+                    res.appendChild(item)
+                    c = c + 1 
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

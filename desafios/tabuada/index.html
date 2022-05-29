@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos contar</title>
+    <style>
+        body {
+            background-color: rgb(63, 133, 214);
+        }
+        header > h1 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 600px;
+            padding: 10px;
+            border-radius: 8px;
+            margin: auto;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        p#campos {
+            display: inline-block;
+        }
+        
+        section > div > {
+            padding: 10px;
+        }
+        section > div > select {
+            width: 200px;
+            height: 200px;
+        }
+        div#resultado {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: lightgray;
+            width: 100px;
+            height: 180px;
+            border-radius: 6px;
+            padding: 5px;
+        }
+        footer > p{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+    <section>
+        <div >
+            <p id="campos">Número: <input type="number" id="numero"></p>
+            <input type="button" value="Gerar Tabuada" onclick="tabuada()">
+        </div>
+        <div id="resultado">
+            
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+    <script>
+        function tabuada() {
+
+            var num = document.getElementById('numero')
+            var res = document.getElementById('resultado')
+
+            if (num.value.length == 0) {
+                window.alert('Digite um número!')
+                res.innerHTML = ``
+            } else {
+                res.innerHTML = ``
+                let n = Number(num.value)
+
+                for (let v = 1;v <= 10;v = v + 1) {
+                    let r = n * v
+                    res.innerHTML += `${n} x ${v} = ${r}<br>`
+                }
+
+            }
+        }
+    </script>
+</body>
+</html>
