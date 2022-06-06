@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisando Números</title>
+    <script src=""></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(137, 178, 255);
+        }
+        header > h1 {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            width: 500px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+        }
+        div {
+            padding-bottom: 10px;
+        }
+        select#flista {
+            display: block;
+            width: 180px;
+        }
+        footer > p {
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analsando Números</h1>
+    </header>
+    <section>
+        <div>
+            Número (entre 1 e 100): 
+            <input type="number" id="fnum"> 
+            <input type="button" value="Adicionar" onclick="adicionar()"><br><br>
+            <select name="flista" id="flista" size="5"></select><br>
+            <input type="button" value="finalizar" onclick="finalizar()">
+        </div>
+        <div id="res">
+
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+   
+    <script src="script.js"></script>
+</body>
+</html>

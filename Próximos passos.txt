@@ -1,0 +1,21 @@
+
+- Funções
+	arrow functions
+	callback's
+	funções anônimas
+	If's iife
+	Js funcional
+- Objetos
+	(estudar orientação a objetos)
+- Modularização
+- RegEx
+	(Expressões regulares)
+- JSON
+- AJAX
+- NodeJs
+- Bibliotecas (frameworks)
+	Jquery
+	ViewJs
+	Ângula
+	
+	
